@@ -2,11 +2,14 @@ package com.kotlin.domains.movies.mappers
 
 import com.kotlin.domains.movies.dtos.PersonDTO
 import com.kotlin.domains.movies.entitis.Person
+import lombok.AllArgsConstructor
+import lombok.RequiredArgsConstructor
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 
 @Service
-interface ImplementationOfPersonMapper: PersonMapper<PersonDTO, Person> {
+
+class ImplementationOfPersonMapper: PersonMapper<PersonDTO, Person> {
     override fun toDTO(entity: Person): PersonDTO {
         return PersonDTO(
             entity.id,
