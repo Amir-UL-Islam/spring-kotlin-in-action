@@ -9,7 +9,7 @@ import javax.persistence.Id
 data class Person(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Int? = null,
     val name: String,
     val age: Int,
     val address: String,
