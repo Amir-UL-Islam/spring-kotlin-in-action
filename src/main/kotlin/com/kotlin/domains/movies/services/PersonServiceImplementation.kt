@@ -18,10 +18,15 @@ class PersonServiceImplementation(
 //        So go to this approach instead
         val person = personMapperImplementation.toEntity(personDTO);
         personRepository.save(person);
-        return personMapperImplementation.toDTO(person);
+        return personMapperImplementation.toDTO(person); // Now When the DTO will be called it will return a person with the id
 
 //        Or we can do this
 //        return personMapperImplementation.toDTO(personRepository.save(personMapperImplementation.toEntity(personDTO)));
 
+    }
+
+    // Getting all Persons
+    fun getPersons(): List<PersonDTO> {
+        return personRepository.findAll().map { personMapperImplementation.toDTO(it) }
     }
 }

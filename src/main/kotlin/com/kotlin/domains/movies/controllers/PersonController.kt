@@ -2,6 +2,7 @@ package com.kotlin.domains.movies.controllers
 
 import com.kotlin.domains.movies.dtos.PersonDTO
 import com.kotlin.domains.movies.services.PersonServiceImplementation
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -15,6 +16,11 @@ class PersonController(
         @RequestBody personDTO: PersonDTO
     ): PersonDTO {
         return personServiceImplementation.createPerson(personDTO);
+    }
+
+    @GetMapping("/all_persons")
+    fun getPersons(): List<PersonDTO> {
+        return personServiceImplementation.getPersons();
     }
 
 }

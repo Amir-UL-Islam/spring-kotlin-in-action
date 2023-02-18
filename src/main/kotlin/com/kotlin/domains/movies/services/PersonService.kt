@@ -4,4 +4,5 @@ import com.kotlin.domains.movies.dtos.PersonDTO
 
 interface PersonService {
     fun createPerson(personDTO: PersonDTO): PersonDTO
+    fun getPerson(): List<PersonDTO>
 }
